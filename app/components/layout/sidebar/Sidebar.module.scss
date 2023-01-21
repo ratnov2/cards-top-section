@@ -1,0 +1,41 @@
+.sidebar {
+	@apply w-1/5 bg-white p-10;
+
+	> a {
+		@apply mb-16 block;
+	}
+
+	> ul {
+		> li {
+			> a {
+				@apply mb-6 flex items-center gap-6 text-lg text-gray;
+
+				> span:first-child {
+					@apply block rounded-full bg-transparent p-2 transition-colors;
+				}
+
+				> span:last-child {
+					@apply transition-colors;
+				}
+
+				&:hover > span:last-child {
+					@apply text-black;
+				}
+
+				&.active {
+					> span:first-child {
+						@apply bg-purple text-white;
+					}
+
+					> span:last-child {
+						@apply text-black;
+					}
+				}
+			}
+		}
+	}
+
+	> div {
+		@apply mt-52 text-sm text-[#A098AE];
+	}
+}
