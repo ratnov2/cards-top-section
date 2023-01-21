@@ -1,0 +1,19 @@
+.head {
+	@apply my-8 text-xl text-4xl font-bold;
+}
+.cardList {
+	@apply flex rounded-3xl bg-white p-5;
+
+	.leftCardList {
+		@apply mx-5 w-5/12 max-w-xl border-r-2 border-r-light-gray pr-4;
+		.sliderCard {
+			@apply relative flex align-middle;
+		}
+	}
+	.rightCardList {
+		@apply w-7/12;
+	}
+	.bottomPlace {
+		@apply mt-10 mb-2 flex justify-between;
+	}
+}

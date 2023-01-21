@@ -1,0 +1,122 @@
+@import '../ui.module';
+
+@function size($base_width, $property: 0, $extra_width: 18, $extra_height: 8) {
+	$offset: 5;
+	@if $base_width <= 50 {
+		$offset: 4;
+	}
+	@if $property == 'parent' {
+		@return ($base_width + $extra_height) / 2 + $offset + px;
+	}
+	@if $property == 'child-dimension' {
+		@return ($base_width + $extra_height) / 2 - $offset + px;
+	}
+	@if $property == 'child-translate' {
+		@return ($base_width - $extra_height) / 2 + $extra_width - $offset + px;
+	}
+	@if $property == 'child-offset' {
+		@return $offset + px;
+	}
+	@if $property == 'left-text' {
+		@return $offset + 8 + px;
+	}
+	@if $property == 'right-text' {
+		@return $offset + 8 + px;
+	}
+
+	@return $base_width + $extra_width + px;
+}
+
+@mixin parent_classes {
+	@each $class, $size in $class_size_switch {
+		&.#{$class} {
+			height: size($size, 'parent');
+			width: size($size);
+		}
+	}
+}
+@mixin child_classes {
+	@each $class, $size in $class_size_switch {
+		&.#{$class}::before {
+			bottom: size($size, 'child-offset');
+			height: size($size, 'child-dimension');
+			left: size($size, 'child-offset');
+			width: size($size, 'child-dimension');
+		}
+	}
+}
+@mixin translate_classes {
+	@each $class, $size in $class_size_switch {
+		&.#{$class}::before {
+			transform: translateX(size($size, 'child-translate'));
+		}
+	}
+}
+@mixin color_classes {
+	@each $class, $color in $class_color {
+		&.#{$class} {
+			background-color: #{$color};
+		}
+	}
+}
+
+.text {
+	&-left {
+		opacity: 0;
+		left: size($base_width_xs, 'left-text');
+	}
+	&-right {
+		opacity: 1;
+		right: size($base_width_xs, 'right-text');
+	}
+}
+
+// container
+.checkbox {
+	display: inline-block;
+	position: relative;
+
+	@include parent_classes;
+
+	// needed to simulate new fake_input ( real input is hidden )
+	.fake_input {
+		background-color: $gray;
+		bottom: 0;
+		cursor: pointer;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: 0.4s;
+		border-radius: 9999px;
+
+		&::before {
+			background-color: $white;
+			content: '';
+			position: absolute;
+			transition: 0.4s;
+			border-radius: 50%;
+		}
+
+		@include child_classes;
+	}
+
+	input {
+		display: none;
+
+		&:checked {
+			// fake_input styles when input is checked
+			& + .fake_input {
+				& + .text-left {
+					opacity: 1;
+					& + .text-right {
+						opacity: 0;
+					}
+				}
+
+				@include color_classes;
+				@include translate_classes;
+			}
+		}
+	}
+}

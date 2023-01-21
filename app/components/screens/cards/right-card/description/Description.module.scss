@@ -1,0 +1,20 @@
+.description {
+	h2 {
+		@apply my-6 text-xl font-bold;
+	}
+	.information {
+		@apply grid grid-cols-4 gap-4;
+		div {
+			&:nth-child(2) {
+				@apply col-span-2;
+			}
+		}
+
+		h3 {
+			@apply font-light text-gray;
+		}
+		p {
+			@apply text-sm font-bold;
+		}
+	}
+}
