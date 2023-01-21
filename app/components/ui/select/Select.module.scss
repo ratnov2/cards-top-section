@@ -1,0 +1,265 @@
+@import '../ui.module';
+
+@mixin control_size_classes {
+	@each $class, $size in $class_font_size {
+		&.#{$class} {
+			font-size: #{$size} !important;
+		}
+		&__focused {
+			&.#{$class} {
+				font-size: #{$size} !important;
+			}
+		}
+	}
+}
+@mixin menu_size_classes {
+	@each $class, $size in $class_font_size {
+		&.#{$class} {
+			.Option {
+				font-size: #{$size};
+
+				&__selected {
+					font-size: #{$size};
+				}
+			}
+		}
+	}
+}
+// primary color
+@mixin control_color_classes_primary {
+	@each $class, $color in $class_color {
+		&__focused {
+			&.#{$class} {
+				box-shadow: 0 0 0 0px #{$color} !important;
+				border-color: #{$color} !important;
+				background-color: #{$color} !important;
+
+				.singleValue {
+					color: $white !important;
+				}
+
+				.Input {
+					color: $white !important;
+				}
+
+				.placeholder {
+					color: $white !important;
+				}
+			}
+		}
+		&.#{$class} {
+			border-color: #{$color} !important;
+			background-color: #{$color} !important;
+			.placeholder {
+				color: $white !important;
+			}
+
+			.singleValue {
+				color: $white !important;
+			}
+			.Input {
+				color: $white !important;
+			}
+		}
+	}
+}
+@mixin menu_color_classes_primary {
+	@each $class, $color in $class_color {
+		&.#{$class} {
+			box-shadow: 0 0 0 1px rgba($color, 0.4), 0 2px 6px rgba($color, 0.4) !important;
+
+			.Option {
+				border-color: #{$color};
+				background-color: #{$color};
+				color: $white;
+
+				&__selected {
+					background-color: rgba($color, 0.8) !important;
+				}
+
+				&:hover {
+					color: $white;
+					background-color: rgba($color, 0.6) !important;
+				}
+			}
+		}
+	}
+}
+@mixin dropdown_color_classes_primary {
+	@each $class, $color in $class_color {
+		&.#{$class} {
+			color: $white !important;
+		}
+		&__focused {
+			&.#{$class} {
+				color: $white !important;
+			}
+		}
+	}
+}
+
+// secondary color
+@mixin control_color_classes_secondary {
+	@each $class, $color in $class_color {
+		&__focused {
+			&.#{$class} {
+				box-shadow: 0 0 0 0px #{$color} !important;
+				border-color: #{$color} !important;
+
+				.singleValue {
+					color: #{$color} !important;
+				}
+
+				.Input {
+					color: #{$color} !important;
+				}
+
+				.placeholder {
+					color: #{$color} !important;
+				}
+			}
+		}
+		&.#{$class} {
+			border-color: #{$color} !important;
+			.placeholder {
+				color: #{$color} !important;
+			}
+
+			.singleValue {
+				color: #{$color} !important;
+			}
+			.Input {
+				color: #{$color} !important;
+			}
+		}
+	}
+}
+
+@mixin menu_color_classes_secondary {
+	@each $class, $color in $class_color {
+		&.#{$class} {
+			box-shadow: 0 0 0 1px rgba($color, 0.4), 0 2px 6px rgba($color, 0.4) !important;
+
+			.Option {
+				border-color: #{$color};
+				color: #{$color};
+
+				&__selected {
+					background-color: rgba($color, 0.8);
+				}
+
+				&:hover {
+					color: $white;
+					background-color: rgba($color, 0.6);
+				}
+			}
+		}
+	}
+}
+@mixin dropdown_color_classes_secondary {
+	@each $class, $color in $class_color {
+		&.#{$class} {
+			color: #{$color} !important;
+		}
+		&__focused {
+			&.#{$class} {
+				color: #{$color} !important;
+			}
+		}
+	}
+}
+
+.valueContainer,
+.Input,
+.dropdownIndicator,
+.indicatorsContainer {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.indicatorSeparator {
+	display: none !important;
+}
+
+.control {
+	padding: 0.3em 1em !important;
+	min-height: auto !important;
+	border-radius: 9999px !important;
+
+	&__focused {
+		border-radius: 9999px !important;
+		padding: 0.3em 1em !important;
+		min-height: auto !important;
+	}
+}
+.primary {
+	&.control {
+		@include control_size_classes;
+		@include control_color_classes_primary;
+	}
+}
+.secondary {
+	&.control {
+		@include control_size_classes;
+		@include control_color_classes_secondary;
+	}
+}
+
+// dropdown indicator
+.dropdownIndicator {
+	padding: 0 !important;
+	margin: 0 !important;
+
+	&__focused {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
+}
+.primary {
+	&.dropdownIndicator {
+		@include dropdown_color_classes_primary;
+	}
+}
+.secondary {
+	&.dropdownIndicator {
+		@include dropdown_color_classes_secondary;
+	}
+}
+
+// menuIsOpen
+.menu {
+	overflow: hidden;
+	padding: 0 !important;
+
+	border-radius: 20px !important;
+
+	&::-webkit-scrollbar {
+		display: none !important;
+	}
+
+	&List {
+		padding: 0 !important;
+		&::-webkit-scrollbar {
+			display: none !important;
+		}
+	}
+
+	.Option {
+		padding: 0.3em 1em;
+
+		&__selected {
+			padding: 0.3em 1em;
+		}
+	}
+}
+.primary {
+	&.menu {
+		@include menu_size_classes;
+		@include menu_color_classes_primary;
+	}
+}
+.secondary {
+	&.menu {
+		@include menu_size_classes;
+		@include menu_color_classes_secondary;
+	}
+}

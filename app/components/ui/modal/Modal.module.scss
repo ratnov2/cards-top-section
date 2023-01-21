@@ -1,0 +1,21 @@
+.modal {
+	@apply fixed left-0 top-0 right-0 bottom-0 z-50 flex justify-center  bg-black bg-opacity-50 text-center;
+
+	.modalContent {
+		@apply absolute top-1/3 w-96 rounded-2xl bg-white p-5;
+
+		input {
+			@apply rounded-xl border-2 p-2 focus-visible:outline-none;
+		}
+	}
+	.modalHeader h4 {
+		@apply text-2xl font-bold;
+	}
+
+	.modalFooter {
+		@apply mt-5;
+		button {
+			@apply mt-4;
+		}
+	}
+}

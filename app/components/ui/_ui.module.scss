@@ -1,0 +1,45 @@
+/* 
+ * ui components variables:
+*/
+@import 'app/assets/styles/variables';
+// colors
+$class_color: (
+	'purple': $purple,
+	'orange': $orange,
+	'green': $green,
+	'black': $black,
+	'red': $red,
+	'gray': $gray,
+	'white': $white,
+	'light-blue': $light-blue,
+	'light-gray': $light-gray
+);
+// font sizes
+$font_size_xs: 0.82rem;
+$font_size_sm: 0.98rem;
+$font_size_base: 1.15rem;
+$font_size_lg: 1.22rem;
+$font_size_xl: 1.36rem;
+
+$class_font_size: (
+	'xs': $font_size_xs,
+	'sm': $font_size_sm,
+	'base': $font_size_base,
+	'lg': $font_size_lg,
+	'xl': $font_size_xl
+);
+
+// switch component
+$base_width_xs: 45;
+$base_width_sm: 50;
+$base_width_base: 60;
+$base_width_lg: 65;
+$base_width_xl: 70;
+
+$class_size_switch: (
+	'xs': $base_width_xs,
+	'sm': $base_width_sm,
+	'base': $base_width_base,
+	'lg': $base_width_lg,
+	'xl': $base_width_xl
+);

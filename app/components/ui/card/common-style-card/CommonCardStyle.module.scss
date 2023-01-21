@@ -1,0 +1,28 @@
+.rectangleGroup {
+	@apply flex justify-end;
+	.rectangle {
+		@apply h-72 w-24 rounded-full;
+
+		&:first-child {
+			@apply absolute top-28 -right-5;
+		}
+
+		&:last-child {
+			@apply absolute top-40 right-7 bg-opacity-50;
+		}
+	}
+}
+.circleGroup {
+	@apply flex justify-end;
+	.circle {
+		@apply top-5 right-10 h-14 w-14 rounded-full bg-light-gray bg-opacity-50;
+
+		&:first-child {
+			@apply absolute;
+		}
+
+		&:last-child {
+			@apply absolute right-20 bg-opacity-50;
+		}
+	}
+}

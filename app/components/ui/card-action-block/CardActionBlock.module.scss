@@ -1,0 +1,15 @@
+.cardAction {
+	@apply relative h-44 w-full text-white;
+	h1 {
+		@apply absolute left-5 top-6 text-xl font-bold;
+	}
+	p {
+		@apply absolute left-5 bottom-3 w-3/5 text-sm font-light;
+	}
+	img {
+		@apply absolute right-6 top-2;
+	}
+	button {
+		@apply absolute right-14 top-10;
+	}
+}

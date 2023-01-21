@@ -1,0 +1,36 @@
+.shareCard {
+	@apply flex rounded-[40px];
+
+	.card {
+		@apply w-full relative h-72 overflow-hidden rounded-[40px]  text-white;
+		.balance {
+			@apply absolute top-10 ml-10;
+			p {
+				@apply text-2xl font-bold;
+			}
+			h3{
+				@apply font-light;
+			}
+		}
+		.number {
+			@apply absolute right-10 top-32 text-xl;
+
+			p{
+				@apply cursor-pointer hover:opacity-80 ;
+			}
+		}
+		.valid,
+		.holder {
+			@apply absolute bottom-5 text-center font-light ;
+			p{
+				@apply font-bold;
+			}
+		}
+		.holder {
+			@apply ml-10;
+		}
+		.valid {
+			@apply ml-52;
+		}
+	}
+}

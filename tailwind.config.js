@@ -10,7 +10,8 @@ const constants = {
 	white: '#ffffff',
 	red: '#FF4A55',
 	gray: '#8E8EA1',
-	'light-gray': '#F5F5F5'
+	'light-gray': '#F9F9F9',
+	'gray-2': '#F5F5F5'
 }
 
 module.exports = {
@@ -35,8 +36,8 @@ module.exports = {
 				'6xl': '4.3rem',
 				'7xl': '5.17rem',
 				'8xl': '6.9rem',
-				'9xl': '9.2rem'
-			}
+				'9xl': '9.2rem',
+			},
 		}
 	},
 	plugins: []

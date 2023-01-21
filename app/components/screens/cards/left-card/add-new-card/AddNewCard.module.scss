@@ -1,0 +1,9 @@
+.newCard {
+  @apply mt-8 flex align-text-top transition-all duration-100 ease-in;
+  &:hover {
+    @apply text-green;
+  }
+  svg {
+    @apply text-2xl;
+  }
+}
